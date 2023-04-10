@@ -6,6 +6,7 @@ export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
   console.log("===>", `util-${schema.name}`);
   await libraryGenerator(tree, {
     name: `util-${schema.name}`,
+    directory: schema.directory,
   });
   await formatFiles(tree);
   return () => {
