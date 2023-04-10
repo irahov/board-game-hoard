@@ -6,6 +6,7 @@ import {StoreUiSharedModule} from "@bg-hoard/store/ui-shared";
 import {formatRating} from "@bg-hoard/store/util-formatters";
 import {RouterModule} from "@angular/router";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {Game} from "@bg-hoard/util-interface";
 
 @Component({
   selector: 'bg-hoard-root',
@@ -19,5 +20,5 @@ export class AppComponent {
 
   title = 'Board Game Hoard';
   formatRating = formatRating;
-  games = this.http.get<any[]>('/api/games');
+  games = this.http.get<Game[]>('/api/games');
 }
