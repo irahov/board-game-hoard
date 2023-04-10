@@ -5,17 +5,19 @@ import {CommonModule} from "@angular/common";
 import {StoreUiSharedModule} from "@bg-hoard/store/ui-shared";
 import {formatRating} from "@bg-hoard/store/util-formatters";
 import {RouterModule} from "@angular/router";
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'bg-hoard-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [MatCardModule, CommonModule, StoreUiSharedModule, RouterModule]
+  imports: [MatCardModule, CommonModule, StoreUiSharedModule, RouterModule, HttpClientModule]
 })
 export class AppComponent {
-  title = 'Board Game Hoard';
-  games = getAllGames();
+  constructor(private http: HttpClient) {}
 
+  title = 'Board Game Hoard';
   formatRating = formatRating;
+  games = this.http.get<any[]>('/api/games');
 }
