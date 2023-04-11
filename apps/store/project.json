@@ -96,6 +96,13 @@
       "options": {
         "buildTarget": "store:build"
       }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN}"
+      }
     }
   }
 }
