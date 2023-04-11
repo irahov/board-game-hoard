@@ -35,7 +35,7 @@ const games: Game[] = [
 export class AppService {
 
   constructor() {
-    sendNotification(1234567);
+    sendNotification("1234567");
   }
   getAllGames = () => games;
   getGame = (id: string) => games.find((game) => game.id === id);
